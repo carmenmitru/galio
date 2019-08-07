@@ -27,15 +27,30 @@ const Header = ({}) => (
     </Text>
   </Block>
 );
+const Labels = ({data}) =>
+data.map((item, index) => (
+    <Text
+        key={index}
+        size={theme.SIZES.FONT * 0.85}
+        color={theme.COLORS.GREY}
+        alignmentBaseline={'middle'}
+    >
+        {item}
+    </Text>
+))
+
 
 class Dashbord extends React.Component {
   constructor() {
     super();
   }
+
   render() {
-    const data = [50, 70, 75, 65, 60, 80, 90];
+    const data = [50, 80, 60, 95, 120];
+    const labels = ["04/11","05/11","06/11","07/11","08/11"]
 
     return (
+
       <Block safe flex>
         <NavBar
           title="Dashboard"
@@ -53,17 +68,19 @@ class Dashbord extends React.Component {
           <View style={styles.card}>
             <Header />
             <LineChart
-              style={{ height: 200 }}
+              style={{ height: 150 }}
               data={data}
-              yMin={0}
               belowChart={true}
-              yMax={Math.max(...data)}
               contentInset={{ top: 30, bottom: 10, left: 0, right: 10 }}
               curve={shape.curveNatural}
-              svg={{ stroke: 'url(#gradient)', strokeWidth: 6 }}>
+              svg={{ stroke: 'url(#gradient)', strokeWidth: 6 }}
+            >
               <Gradient />
 
             </LineChart>
+            <Block row space="evenly" style={{ marginTop: BASE_SIZE }}>
+                <Labels data={labels}/>
+            </Block>
           </View>
         </Block>
       </Block>
