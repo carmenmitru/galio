@@ -9,8 +9,8 @@ import {
 } from 'react-navigation';
 
 // screens
-
-import SignUp from './src/screens/SignUp'
+import SignUp from './src/screens/SignUp';
+import Dashboard from './src/screens/Dashboard';
 
 import theme from './src/theme';
 import { Block, Icon, Text } from 'galio-framework';
@@ -84,6 +84,13 @@ const screens = {
       drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
     },
   },
+  Dashboard:{
+    screen: Dashboard,
+    navigationOptions: {
+      drawerLabel: 'Dashboard',
+      drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
+    },
+  }
   /*
   Dashboard: {
     screen: Dashboard,
